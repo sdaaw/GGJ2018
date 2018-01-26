@@ -43,21 +43,47 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<Sprite> m_mouthList;
 
+    [SerializeField]
+    private List<Color> m_skinColorList;
+    [SerializeField]
+    private List<Color> m_torsoColorList;
+    [SerializeField]
+    private List<Color> m_hairColorList;
+    [SerializeField]
+    private List<Color> m_eyebrowColorList;
+    [SerializeField]
+    private List<Color> m_eyeColorList;
+    [SerializeField]
+    private List<Color> m_moustacheColorList;
+    [SerializeField]
+    private List<Color> m_mouthColorList;
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        waitingForNext = true;
     }
 
     private void Update()
     {
         //start game
         if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            waitingForNext = false;
             StartTrial(20);
+        }
 
         if (m_timeRemaining > 0 && !waitingForNext)
             m_timeRemaining -= Time.deltaTime;
-        if (m_timeRemaining <= 0)
+        if (m_timeRemaining <= 0 && !waitingForNext)
+        {
+            StartCoroutine("FlashScreenRed");
+            madeJudgement = true;
+            strikes++;
+            if (strikes == 3)
+                Debug.Log("Game over");
             m_timeRemaining = 0;
+        }
 
         /*if (m_timeRemaining > 0 && !makingJudgement && Input.GetKeyDown(KeyCode.Space))
             Confirm();*/
@@ -149,7 +175,15 @@ public class GameManager : MonoBehaviour
                            m_eyesList[Random.Range(0, m_eyesList.Count - 1)],
                            m_moustacheList[Random.Range(0, m_moustacheList.Count - 1)],
                            m_mouthList[Random.Range(0, m_mouthList.Count - 1)]);
-        suspect.AssignPersonality();
 
+        suspect.SetSpriteColors(m_skinColorList[Random.Range(0,m_skinColorList.Count - 1)],
+                                m_torsoColorList[Random.Range(0, m_torsoColorList.Count - 1)],
+                                m_hairColorList[Random.Range(0, m_hairColorList.Count - 1)],
+                                m_eyebrowColorList[Random.Range(0, m_eyebrowColorList.Count - 1)],
+                                m_eyeColorList[Random.Range(0, m_eyeColorList.Count - 1)],
+                                m_moustacheColorList[Random.Range(0, m_moustacheColorList.Count - 1)],
+                                m_mouthColorList[Random.Range(0, m_mouthColorList.Count - 1)]);
+
+        suspect.AssignPersonality();
     }
 }

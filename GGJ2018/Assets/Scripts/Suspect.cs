@@ -37,22 +37,22 @@ public class Suspect : MonoBehaviour {
     public void SetSprites(Sprite torso, Sprite hair, Sprite eyebrows, Sprite eyes, Sprite moustache, Sprite mouth)
     {
         m_torso.sprite = torso;
-        m_torso.color = getRndColor();
-
         m_hair.sprite = hair;
-        m_hair.color = getRndColor();
-
         m_eyebrows.sprite = eyebrows;
-        m_eyebrows.color = getRndColor();
-
         m_eyes.sprite = eyes;
-        m_eyes.color = getRndColor();
-
         m_moustache.sprite = moustache;
-        m_moustache.color = getRndColor();
+        m_mouth.sprite = mouth;     
+    }
 
-        m_mouth.sprite = mouth;
-        m_mouth.color = getRndColor();
+    public void SetSpriteColors(Color skinC, Color torsoC, Color hairC, Color eyebrowsC, Color eyesC, Color moustacheC, Color mouthC)
+    {
+        m_torso.color = skinC;
+        //skin
+        m_hair.color = hairC;
+        m_eyebrows.color = eyebrowsC;
+        //m_eyes.color = eyesC;
+        m_moustache.color = moustacheC;
+        m_mouth.color = mouthC;
     }
 
     public Color getRndColor()
