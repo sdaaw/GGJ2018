@@ -19,6 +19,7 @@ public class Suspect : MonoBehaviour {
     public string caseStory;
 
     public int badVerbCount = 0;
+    public int goodVerbCount = 0;
 
     [SerializeField]
     private SpriteRenderer m_torso;
@@ -62,7 +63,7 @@ public class Suspect : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //AssignPersonality();
+        AssignPersonality();
 	}
 
 
@@ -114,6 +115,12 @@ public class Suspect : MonoBehaviour {
         string[] arr = input.Split(new char[] { ' ', '.' });
         int count = Array.FindAll(arr, s => s.Equals(badVerbs.Trim())).Length;
         badVerbCount = count;
+        count = 0;
+        string goodVerbs = "!goodverb!";
+        input = baseStory;
+        arr = input.Split(new char[] { ' ', '.' });
+        count = Array.FindAll(arr, s => s.Equals(goodVerbs.Trim())).Length;
+        goodVerbCount = count;
 
 
         story.text = fixedStory;
