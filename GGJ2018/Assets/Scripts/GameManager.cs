@@ -15,9 +15,8 @@ public class GameManager : MonoBehaviour
     public float difficulty;
     public float strikes;
 
-    public bool makingJudgement = false;
-
-    public bool madeJudgement = false;
+    private bool madeJudgement = false;
+    public bool waitingForNext = false;
 
     [SerializeField]
     private float m_timeBetweenSuspects;
@@ -43,22 +42,22 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
         //start game
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !makingJudgement)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
             StartTrial(20);
 
-        if (m_timeRemaining > 0 && !makingJudgement)
+        if (m_timeRemaining > 0 && !waitingForNext)
             m_timeRemaining -= Time.deltaTime;
         if (m_timeRemaining <= 0)
             m_timeRemaining = 0;
 
-        if (m_timeRemaining > 0 && !makingJudgement && Input.GetKeyDown(KeyCode.Space))
-            Confirm();
+        /*if (m_timeRemaining > 0 && !makingJudgement && Input.GetKeyDown(KeyCode.Space))
+            Confirm();*/
 
         UpdateIngameTexts();
 
@@ -80,26 +79,29 @@ public class GameManager : MonoBehaviour
         m_timeToComplete = time;
         m_timeRemaining = m_timeToComplete;
         madeJudgement = false;
-        makingJudgement = false;
-    }
-
-    public void Confirm()
-    {
-        makingJudgement = true;
-        //player selects between 2 buttons
         StartCoroutine("WaitForJudgement");
     }
+
+    /*public void Confirm()
+    {
+        //makingJudgement = true;
+        //player selects between 2 buttons
+        StartCoroutine("WaitForJudgement");
+    }*/
 
     private IEnumerator WaitForJudgement()
     {
         //waits until player makes judegement
         yield return new WaitUntil(()=> madeJudgement == true);
         StartCoroutine("WaitForNext"); 
+        //StartTrial(m_timeToComplete);
     }
 
     private IEnumerator WaitForNext()
     {
+        waitingForNext = true;
         yield return new WaitForSeconds(m_timeBetweenSuspects);
+        waitingForNext = false;
         StartTrial(m_timeToComplete);
     }
 
@@ -131,6 +133,7 @@ public class GameManager : MonoBehaviour
                            m_eyesList[Random.Range(0, m_eyesList.Count - 1)],
                            m_moustacheList[Random.Range(0, m_moustacheList.Count - 1)],
                            m_mouthList[Random.Range(0, m_mouthList.Count - 1)]);
+        suspect.AssignPersonality();
 
     }
 }

@@ -62,11 +62,11 @@ public class Suspect : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        AssignPersonality();
+        //AssignPersonality();
 	}
 
 
-    void AssignPersonality()
+    public void AssignPersonality()
     {
         int fNameIndex = UnityEngine.Random.Range(0, AssetManager.firstNames.Count - 1);
         int lNameIndex = UnityEngine.Random.Range(0, AssetManager.lastNames.Count - 1);
