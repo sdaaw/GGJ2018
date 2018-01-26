@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     private Text m_scoreText;
 
     [SerializeField]
+    private Image m_layer;
+
+    [SerializeField]
     private List<Sprite> m_torsoList;
     [SerializeField]
     private List<Sprite> m_hairList;
@@ -107,20 +110,33 @@ public class GameManager : MonoBehaviour
 
     public void MakeJudgement(ButtonType bT)
     {
-        if (bT == ButtonType.Yes)
-            Debug.Log("voted for trump");
+        bool isGood = (suspect.badVerbCount < suspect.goodVerbCount) ? true : false;
+
+        if (bT == ButtonType.Yes && isGood || bT == ButtonType.No && !isGood)
+        {
+            score += 10 * difficulty + m_timeRemaining;
+            difficulty *= 1.3f;
+            //TODO: lesser time calculate somehow
+        }
         else
-            Debug.Log("voted for putin");
+        {
+            strikes++;
+            //flash screen red
+            StartCoroutine("FlashScreenRed");
+            if (strikes == 3)
+                Debug.Log("Game over");
 
-        //set score/streaks accordingly and add difficulty, reduce time
-        score += 10 * difficulty;
-        difficulty *= 1.3f;
-
-        //strikes++;
-        if (strikes == 3)
-            Debug.Log("Game over");
+            //TODO: Implement Game Over
+        }
 
         madeJudgement = true;
+    }
+
+    private IEnumerator FlashScreenRed()
+    {
+        m_layer.color = new Color(0.8f,0.1f,0.3f,0.6f);
+        yield return new WaitForSeconds(0.2f);
+        m_layer.color = new Color(0, 0, 0, 0);
     }
 
     public void SpawnSuspect()
