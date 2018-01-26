@@ -1,0 +1,6 @@
+aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
+aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
+aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
+aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
+aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
+aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
