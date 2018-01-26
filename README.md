@@ -15,7 +15,7 @@ These .txt files use a very eerie formating.
 !goodverb! displays a good verb
 !badverb! displays a BAD verb D:<
 
-#stage_1# adding this at the start of your story will set this story to be displayed at stage 1(in the beginning). Increasing the number will obviously show the story once you progress in the game
+!#1 adding this at the start of your story will set this story to be displayed at stage 1(in the beginning). Increasing the number will obviously show the story once you progress in the game
 
-#0xFFFFFFF will set the color of the NEXT word
+<color=#0066ff>some word or a sentence</color> will set the color of things and stuff.
 ```
