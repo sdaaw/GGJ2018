@@ -26,13 +26,8 @@ public class AssetManager : MonoBehaviour {
     string objectPath = @"SharedAssets/objectList.txt";
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         LoadAssets();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 
