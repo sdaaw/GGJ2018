@@ -19,7 +19,46 @@ public class Suspect : MonoBehaviour {
     public string caseStory;
 
     public int badVerbCount = 0;
-   
+
+    [SerializeField]
+    private SpriteRenderer m_torso;
+    [SerializeField]
+    private SpriteRenderer m_hair;
+    [SerializeField]
+    private SpriteRenderer m_eyebrows;
+    [SerializeField]
+    private SpriteRenderer m_eyes;
+    [SerializeField]
+    private SpriteRenderer m_moustache;
+    [SerializeField]
+    private SpriteRenderer m_mouth;
+
+    public void SetSprites(Sprite torso, Sprite hair, Sprite eyebrows, Sprite eyes, Sprite moustache, Sprite mouth)
+    {
+        m_torso.sprite = torso;
+        m_torso.color = getRndColor();
+
+        m_hair.sprite = hair;
+        m_hair.color = getRndColor();
+
+        m_eyebrows.sprite = eyebrows;
+        m_eyebrows.color = getRndColor();
+
+        m_eyes.sprite = eyes;
+        m_eyes.color = getRndColor();
+
+        m_moustache.sprite = moustache;
+        m_moustache.color = getRndColor();
+
+        m_mouth.sprite = mouth;
+        m_mouth.color = getRndColor();
+    }
+
+    public Color getRndColor()
+    {
+        return new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f));
+    }
+
 
     // Use this for initialization
     void Start () {
