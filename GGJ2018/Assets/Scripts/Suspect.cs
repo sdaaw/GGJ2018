@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -17,6 +18,9 @@ public class Suspect : MonoBehaviour {
 
     public string caseStory;
 
+    public int badVerbCount = 0;
+   
+
     // Use this for initialization
     void Start () {
         AssignPersonality();
@@ -25,8 +29,8 @@ public class Suspect : MonoBehaviour {
 
     void AssignPersonality()
     {
-        int fNameIndex = Random.Range(0, AssetManager.firstNames.Count - 1);
-        int lNameIndex = Random.Range(0, AssetManager.lastNames.Count - 1);
+        int fNameIndex = UnityEngine.Random.Range(0, AssetManager.firstNames.Count - 1);
+        int lNameIndex = UnityEngine.Random.Range(0, AssetManager.lastNames.Count - 1);
 
         myLastName = AssetManager.lastNames[lNameIndex];
         myFirstName = AssetManager.firstNames[fNameIndex];
@@ -34,12 +38,12 @@ public class Suspect : MonoBehaviour {
         int[] reservedIndex = new int[personalityTraitCount]; 
         for(int i = 0; i < pTraits.Length; i++)
         {
-            int pTraitIndex = Random.Range(0, AssetManager.personalityTraits.Count);
+            int pTraitIndex = UnityEngine.Random.Range(0, AssetManager.personalityTraits.Count);
             for (int j = 0; j < personalityTraitCount; j++)
             {
                 while(pTraitIndex == reservedIndex[j])
                 {
-                    pTraitIndex = Random.Range(0, AssetManager.personalityTraits.Count);
+                    pTraitIndex = UnityEngine.Random.Range(0, AssetManager.personalityTraits.Count);
                 }
             }
             pTraits[i] = AssetManager.personalityTraits[pTraitIndex];
@@ -52,19 +56,25 @@ public class Suspect : MonoBehaviour {
 
     void BuildStory()
     {
-        string baseStory = AssetManager.storyBases[Random.Range(0, AssetManager.storyBases.Count)];
+        string baseStory = AssetManager.storyBases[UnityEngine.Random.Range(0, AssetManager.storyBases.Count - 1)];
         string fixedStory = null; 
         while(fixedStory == null)
         {
             fixedStory = baseStory
-            .Replace("!dAdj!", AssetManager.denominalAdjectives[Random.Range(0, AssetManager.denominalAdjectives.Count - 1)])
-            .Replace("!fAdj!", AssetManager.formingAdjectives[Random.Range(0, AssetManager.formingAdjectives.Count - 1)])
+            .Replace("!dAdj!", AssetManager.denominalAdjectives[UnityEngine.Random.Range(0, AssetManager.denominalAdjectives.Count - 1)])
+            .Replace("!fAdj!", AssetManager.formingAdjectives[UnityEngine.Random.Range(0, AssetManager.formingAdjectives.Count - 1)])
             .Replace("!firstname!", myFirstName)
             .Replace("!lastname!", myLastName)
-            .Replace("!obj!", AssetManager.objects[Random.Range(0, AssetManager.objects.Count - 1)])
-            .Replace("!goodverb!", AssetManager.goodVerbs[Random.Range(0, AssetManager.goodVerbs.Count - 1)])
-            .Replace("!badverb!", AssetManager.badVerbs[Random.Range(0, AssetManager.badVerbs.Count - 1)]);
+            .Replace("!obj!", AssetManager.objects[UnityEngine.Random.Range(0, AssetManager.objects.Count - 1)])
+            .Replace("!goodverb!", AssetManager.goodVerbs[UnityEngine.Random.Range(0, AssetManager.goodVerbs.Count - 1)])
+            .Replace("!badverb!", AssetManager.badVerbs[UnityEngine.Random.Range(0, AssetManager.badVerbs.Count - 1)]);
         }
+
+        string badVerbs = "!badverb!";
+        string input = baseStory;
+        string[] arr = input.Split(new char[] { ' ', '.' });
+        int count = Array.FindAll(arr, s => s.Equals(badVerbs.Trim())).Length;
+        badVerbCount = count;
 
 
         story.text = fixedStory;

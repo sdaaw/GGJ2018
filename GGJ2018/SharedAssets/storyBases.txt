@@ -1,6 +1,1 @@
-aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
-aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
-aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
-aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
-aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
-aaaa !firstname! !lastname! !fAdj! !dAdj! !badverb! !goodverb! !obj! aaaa;
+Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I !badverb! people with !obj! for a hobby, and it is !dAdj!. c:;

@@ -28,7 +28,6 @@ public class AssetManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         LoadAssets();
-		
 	}
 	
 	// Update is called once per frame
@@ -39,7 +38,6 @@ public class AssetManager : MonoBehaviour {
 
     void LoadAssets()
     {
-        int lineCount = 0;
         StreamReader reader = new StreamReader(firstNamePath);
         string text = reader.ReadToEnd();
         string[] names = text.Split(',');
@@ -109,6 +107,5 @@ public class AssetManager : MonoBehaviour {
         }
 
         reader.Close();
-        //Debug.Log("First names loaded: " + firstNames.Count + " | Last names loaded: " + lastNames.Count);
     }
 }
