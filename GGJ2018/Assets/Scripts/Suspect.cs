@@ -18,6 +18,8 @@ public class Suspect : MonoBehaviour {
 
     public string caseStory;
 
+    public int caseStoryLevel = 0;
+
     public int badVerbCount = 0;
     public int goodVerbCount = 0;
 
@@ -107,7 +109,17 @@ public class Suspect : MonoBehaviour {
             .Replace("!lastname!", myLastName)
             .Replace("!obj!", AssetManager.objects[UnityEngine.Random.Range(0, AssetManager.objects.Count - 1)])
             .Replace("!goodverb!", AssetManager.goodVerbs[UnityEngine.Random.Range(0, AssetManager.goodVerbs.Count - 1)])
-            .Replace("!badverb!", AssetManager.badVerbs[UnityEngine.Random.Range(0, AssetManager.badVerbs.Count - 1)]);
+            .Replace("!badverb!", AssetManager.badVerbs[UnityEngine.Random.Range(0, AssetManager.badVerbs.Count - 1)])
+            .Replace("!#1", "")
+            .Replace("!#2", "")
+            .Replace("!#3", "");
+        }
+
+        if (baseStory.Contains("!#"))
+        {
+            int startPoint = baseStory.IndexOf("!#");
+            string s_stage = baseStory.Substring(startPoint + 2, 1);
+            caseStoryLevel = Convert.ToInt32(s_stage);
         }
 
         string badVerbs = "!badverb!";
