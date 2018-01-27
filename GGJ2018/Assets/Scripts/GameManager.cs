@@ -63,6 +63,12 @@ public class GameManager : MonoBehaviour
     private List<Color> m_mouthColorList;
 
     [SerializeField]
+    private Animator m_rightDoorAnim;
+
+    [SerializeField]
+    private Animator m_leftDoorAnim;
+
+    [SerializeField]
     private GameObject gameoverScreen;
 
     private void Awake()
@@ -111,6 +117,7 @@ public class GameManager : MonoBehaviour
 
     public void StartTrial(float time)
     {
+        suspect.GetComponent<Animator>().SetTrigger("spawn");
         waitingForNext = false;
         SpawnSuspect();
         m_timeToComplete = time;
@@ -146,6 +153,19 @@ public class GameManager : MonoBehaviour
     public void MakeJudgement(ButtonType bT)
     {
         bool isGood = (suspect.badVerbCount < suspect.goodVerbCount) ? true : false;
+
+        if (bT == ButtonType.Yes)
+        {
+            m_rightDoorAnim.SetTrigger("openDoor");
+            m_rightDoorAnim.GetComponent<AudioSource>().Play();
+            suspect.GetComponent<Animator>().SetTrigger("moveRight");
+        }
+        else
+        {
+            m_leftDoorAnim.SetTrigger("openDoor");
+            m_leftDoorAnim.GetComponent<AudioSource>().Play();
+            suspect.GetComponent<Animator>().SetTrigger("moveLeft");
+        }  
 
         if (bT == ButtonType.Yes && isGood || bT == ButtonType.No && !isGood)
         {
