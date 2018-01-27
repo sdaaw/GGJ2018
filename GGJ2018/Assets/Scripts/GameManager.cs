@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public float score;
     public float difficulty;
+    private float difficultyNext = 5;
     public float strikes;
 
     public static int caseStoryLevel = 1;
@@ -63,6 +64,12 @@ public class GameManager : MonoBehaviour
     private List<Color> m_mouthColorList;
 
     [SerializeField]
+    private Animator m_rightDoorAnim;
+
+    [SerializeField]
+    private Animator m_leftDoorAnim;
+
+    [SerializeField]
     private GameObject gameoverScreen;
 
     private void Awake()
@@ -111,6 +118,8 @@ public class GameManager : MonoBehaviour
 
     public void StartTrial(float time)
     {
+        suspect.particle.SetTrigger("play");
+        suspect.GetComponent<Animator>().SetTrigger("spawn");
         waitingForNext = false;
         SpawnSuspect();
         m_timeToComplete = time;
@@ -147,17 +156,33 @@ public class GameManager : MonoBehaviour
     {
         bool isGood = (suspect.badVerbCount < suspect.goodVerbCount) ? true : false;
 
+        if (bT == ButtonType.Yes)
+        {
+            m_rightDoorAnim.SetTrigger("openDoor");
+            m_rightDoorAnim.GetComponent<AudioSource>().Play();
+            suspect.GetComponent<Animator>().SetTrigger("moveRight");
+            suspect.particle.SetTrigger("play");
+        }
+        else
+        {
+            m_leftDoorAnim.SetTrigger("openDoor");
+            m_leftDoorAnim.GetComponent<AudioSource>().Play();
+            suspect.GetComponent<Animator>().SetTrigger("moveLeft");
+            suspect.particle.SetTrigger("play");
+        }  
+
         if (bT == ButtonType.Yes && isGood || bT == ButtonType.No && !isGood)
         {
             StartCoroutine("FlashScreenGreen");
             score += 10 * difficulty + m_timeRemaining;
             difficulty *= 1.3f;
-            if(difficulty/5 > 1 && difficulty/5 < 2) //do smth to this value to balance it when you are more clear I guess lul and why in the fuck am I talking in english ahaha not really talking as Im typing A STOORM, you didn't believe me guys, 1:12 baby till the day I fucking die. Im fucking pumped watching this again!!!!!!
+            if(difficulty > difficultyNext) //do smth to this value to balance it when you are more clear I guess lul and why in the fuck am I talking in english ahaha not really talking as Im typing A STOORM, you didn't believe me guys, 1:12 baby till the day I fucking die. Im fucking pumped watching this again!!!!!!
             {
-                //difficulty = 0;
+                difficultyNext += 10;
                 caseStoryLevel++; //take the stories to the next level? more confusion and shit
                 //TODO: this is shit do it better
-                m_timeToComplete *= (difficulty/10);
+                if (m_timeToComplete > 12)
+                    m_timeToComplete -= 2;
             }
         }
         else
