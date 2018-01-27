@@ -1,7 +1,5 @@
-!#3 This is a level 3 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#3 This is a level 3 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#3 This is a level 3 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#3 This is a level 3 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#3 This is a level 3 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#3 This is a level 3 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#3 This is a level 3 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
+It appears that the suspect had been using <color=#ff0000>!obj!</color> for a long time. That led to them !badverb2! another !obj! with !obj!.;
+It appears that the suspect had been using <color=#ff0000>!obj!</color> for a long time. That led to them !goodverb2! another !obj! with !obj!.;
+It appears that the suspect had been using <color=#ff0000>!obj!</color> for a long time. That led to them !badverb2! another !obj! with !obj!.;
+It appears that the suspect had been using <color=#ff0000>!obj!</color> for a long time. That led to them !goodverb2! another !obj! with !obj!.;
+It appears that the suspect had been using <color=#ff0000>!obj!</color> for a long time. That led to them !badverb2! another !obj! with !obj!.;
