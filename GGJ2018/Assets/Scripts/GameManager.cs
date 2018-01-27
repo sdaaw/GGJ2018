@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
             difficulty *= 1.3f;
             if(difficulty > 10) //do smth to this value to balance it when you are more clear I guess lul and why in the fuck am I talking in english ahaha not really talking as Im typing A STOORM, you didn't believe me guys, 1:12 baby till the day I fucking die. Im fucking pumped watching this again!!!!!!
             {
-                caseStoryLevel++;
+                caseStoryLevel++; //take the stories to the next level? more confusion and shit
             }
             //TODO: lesser time calculate somehow
         }
