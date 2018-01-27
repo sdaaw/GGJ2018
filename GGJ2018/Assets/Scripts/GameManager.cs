@@ -70,6 +70,9 @@ public class GameManager : MonoBehaviour
     private Animator m_leftDoorAnim;
 
     [SerializeField]
+    private Animator m_noteAnimator;
+
+    [SerializeField]
     private GameObject gameoverScreen;
 
     private void Awake()
@@ -81,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //start game
+        //DEBUGGING ONLY: start game remove when building game
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             StartTrial(20);
@@ -91,6 +94,7 @@ public class GameManager : MonoBehaviour
             m_timeRemaining -= Time.deltaTime;
         if (m_timeRemaining <= 0 && !waitingForNext)
         {
+            m_noteAnimator.SetTrigger("noteFlip");
             StartCoroutine("FlashScreenRed");
             madeJudgement = true;
             strikes++;
@@ -118,6 +122,7 @@ public class GameManager : MonoBehaviour
 
     public void StartTrial(float time)
     {
+        m_noteAnimator.SetTrigger("noteAnim");
         suspect.particle.SetTrigger("play");
         suspect.GetComponent<Animator>().SetTrigger("spawn");
         waitingForNext = false;
@@ -158,6 +163,7 @@ public class GameManager : MonoBehaviour
 
         if (bT == ButtonType.Yes)
         {
+            m_noteAnimator.SetTrigger("noteFlip");
             m_rightDoorAnim.SetTrigger("openDoor");
             m_rightDoorAnim.GetComponent<AudioSource>().Play();
             suspect.GetComponent<Animator>().SetTrigger("moveRight");
@@ -165,6 +171,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            m_noteAnimator.SetTrigger("noteFlip");
             m_leftDoorAnim.SetTrigger("openDoor");
             m_leftDoorAnim.GetComponent<AudioSource>().Play();
             suspect.GetComponent<Animator>().SetTrigger("moveLeft");
