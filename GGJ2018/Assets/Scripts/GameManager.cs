@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     private Image m_layer;
 
     [SerializeField]
+    private List<Sprite> m_headList;
+    [SerializeField]
     private List<Sprite> m_torsoList;
     [SerializeField]
     private List<Sprite> m_hairList;
@@ -176,20 +178,21 @@ public class GameManager : MonoBehaviour
     {
         //change colors of the sprites?
         //swap the sprites here for new suspect and change story/image in note
-        suspect.SetSprites(m_torsoList[Random.Range(0, m_torsoList.Count - 1)],
-                           m_hairList[Random.Range(0, m_hairList.Count - 1)],
-                           m_eyebrowsList[Random.Range(0, m_eyebrowsList.Count - 1)],
-                           m_eyesList[Random.Range(0, m_eyesList.Count - 1)],
-                           m_moustacheList[Random.Range(0, m_moustacheList.Count - 1)],
-                           m_mouthList[Random.Range(0, m_mouthList.Count - 1)]);
+        suspect.SetSprites(m_headList[Random.Range(0, m_headList.Count)],
+                           m_torsoList[Random.Range(0, m_torsoList.Count)],
+                           m_hairList[Random.Range(0, m_hairList.Count)],
+                           m_eyebrowsList[Random.Range(0, m_eyebrowsList.Count)],
+                           m_eyesList[Random.Range(0, m_eyesList.Count)],
+                           m_moustacheList[Random.Range(0, m_moustacheList.Count)],
+                           m_mouthList[Random.Range(0, m_mouthList.Count)]);
 
-        suspect.SetSpriteColors(m_skinColorList[Random.Range(0,m_skinColorList.Count - 1)],
-                                m_torsoColorList[Random.Range(0, m_torsoColorList.Count - 1)],
-                                m_hairColorList[Random.Range(0, m_hairColorList.Count - 1)],
-                                m_eyebrowColorList[Random.Range(0, m_eyebrowColorList.Count - 1)],
-                                m_eyeColorList[Random.Range(0, m_eyeColorList.Count - 1)],
-                                m_moustacheColorList[Random.Range(0, m_moustacheColorList.Count - 1)],
-                                m_mouthColorList[Random.Range(0, m_mouthColorList.Count - 1)]);
+        suspect.SetSpriteColors(m_skinColorList[Random.Range(0,m_skinColorList.Count)],
+                                m_torsoColorList[Random.Range(0, m_torsoColorList.Count)],
+                                m_hairColorList[Random.Range(0, m_hairColorList.Count)],
+                                m_eyebrowColorList[Random.Range(0, m_eyebrowColorList.Count)],
+                                m_eyeColorList[Random.Range(0, m_eyeColorList.Count)],
+                                m_moustacheColorList[Random.Range(0, m_moustacheColorList.Count)],
+                                m_mouthColorList[Random.Range(0, m_mouthColorList.Count)]);
 
         suspect.AssignPersonality();
     }

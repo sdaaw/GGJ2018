@@ -25,6 +25,8 @@ public class Suspect : MonoBehaviour {
     private int storyLevel;
 
     [SerializeField]
+    private SpriteRenderer m_head;
+    [SerializeField]
     private SpriteRenderer m_torso;
     [SerializeField]
     private SpriteRenderer m_hair;
@@ -37,8 +39,9 @@ public class Suspect : MonoBehaviour {
     [SerializeField]
     private SpriteRenderer m_mouth;
 
-    public void SetSprites(Sprite torso, Sprite hair, Sprite eyebrows, Sprite eyes, Sprite moustache, Sprite mouth)
+    public void SetSprites(Sprite head, Sprite torso, Sprite hair, Sprite eyebrows, Sprite eyes, Sprite moustache, Sprite mouth)
     {
+        m_head.sprite = head;
         m_torso.sprite = torso;
         m_hair.sprite = hair;
         m_eyebrows.sprite = eyebrows;
@@ -49,8 +52,8 @@ public class Suspect : MonoBehaviour {
 
     public void SetSpriteColors(Color skinC, Color torsoC, Color hairC, Color eyebrowsC, Color eyesC, Color moustacheC, Color mouthC)
     {
-        m_torso.color = skinC;
-        //skin
+        m_head.color = skinC;
+        m_torso.color = torsoC;
         m_hair.color = hairC;
         m_eyebrows.color = eyebrowsC;
         //m_eyes.color = eyesC;
