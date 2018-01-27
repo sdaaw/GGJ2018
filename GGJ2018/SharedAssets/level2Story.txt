@@ -1,7 +1,6 @@
-!#2 This is a level 2 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#2 This is a level 2 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#2 This is a level 2 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#2 This is a level 2 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#2 This is a level 2 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#2 This is a level 2 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#2 This is a level 2 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
+The suspect has been in a very <color=#ff0000>!dAdj!</color> state during the investigation. They <color=#ff0000>!goodverb!</color> a street dog, which led to us finding out that he had a record of where he !badverb! another streed dog with !obj!.;
+The suspect has been in a very <color=#ff0000>!dAdj!</color> state during the investigation. They !badverb! a street dog, which led to us finding out that he had a record of where he !goodverb! another streed dog with !obj!.;
+The suspect has been in a very <color=#ff0000>!dAdj!</color> state during the investigation. They !goodverb! a street dog, which led to us finding out that he had a record of where he !goodverb! another streed dog with !obj!.;
+The suspect has been in a very <color=#ff0000>!dAdj!</color> state during the investigation. They !badverb! a street dog, which led to us finding out that he had a record of where he !badverb! another streed dog with !obj!.;
+The suspect has been charged for !badverb2!, !goodverb2!, !badverb2!, !badverb2! in their lifetime. They are also suspected of !badverb2! our officer during an interview.;
+The suspect has been charged for !goodverb2!, !goodverb2!, !badverb2!, !goodverb2! in their lifetime. They have been surprisingly !dAdj! during the investigation and !goodverb! our detective.;

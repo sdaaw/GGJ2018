@@ -112,6 +112,8 @@ public class Suspect : MonoBehaviour {
 
     void BuildStory()
     {
+        goodVerbCount = 0;
+        badVerbCount = 0;
         string baseStory = null;
         if(GameManager.caseStoryLevel == 1) baseStory = AssetManager.story1Bases[UnityEngine.Random.Range(0, AssetManager.story1Bases.Count - 1)];
         if(GameManager.caseStoryLevel == 2) baseStory = AssetManager.story2Bases[UnityEngine.Random.Range(0, AssetManager.story2Bases.Count - 1)];
@@ -131,19 +133,33 @@ public class Suspect : MonoBehaviour {
         .Replace("!lastname!", myLastName)
         .Replace("!obj!", AssetManager.objects[UnityEngine.Random.Range(0, AssetManager.objects.Count - 1)])
         .Replace("!goodverb!", AssetManager.goodVerbs[UnityEngine.Random.Range(0, AssetManager.goodVerbs.Count - 1)])
-        .Replace("!badverb!", AssetManager.badVerbs[UnityEngine.Random.Range(0, AssetManager.badVerbs.Count - 1)]);
+        .Replace("!badverb!", AssetManager.badVerbs[UnityEngine.Random.Range(0, AssetManager.badVerbs.Count - 1)])
+        .Replace("!goodverb2!", AssetManager.goodVerbs2[UnityEngine.Random.Range(0, AssetManager.goodVerbs2.Count - 1)])
+        .Replace("!badverb2!", AssetManager.badVerbs2[UnityEngine.Random.Range(0, AssetManager.badVerbs2.Count - 1)]);
 
         string badVerbs = "!badverb!";
         string input = baseStory;
         string[] arr = input.Split(new char[] { ' ', '.' , '<', '>'});
         int count = Array.FindAll(arr, s => s.Equals(badVerbs.Trim())).Length;
-        badVerbCount = count;
+        badVerbCount += count;
+
+        string goodVerbs2 = "!goodverb2!";
+        input = baseStory;
+        arr = input.Split(new char[] { ' ', '.', '<', '>' });
+        count = Array.FindAll(arr, s => s.Equals(goodVerbs2.Trim())).Length;
+        goodVerbCount += count;
+
+        string badVerbs2 = "!badverb2!";
+        input = baseStory;
+        arr = input.Split(new char[] { ' ', '.', '<', '>' });
+        count = Array.FindAll(arr, s => s.Equals(badVerbs2.Trim())).Length;
+        badVerbCount += count;
 
         string goodVerbs = "!goodverb!";
         input = baseStory;
         arr = input.Split(new char[] { ' ', '.', '<', '>' });
         count = Array.FindAll(arr, s => s.Equals(goodVerbs.Trim())).Length;
-        goodVerbCount = count;
+        goodVerbCount += count;
 
 
         story.text = fixedStory;
