@@ -22,6 +22,8 @@ public class Suspect : MonoBehaviour {
     public int badVerbCount = 0;
     public int goodVerbCount = 0;
 
+    public string myProfession = null;
+
     private int storyLevel;
 
     [SerializeField]
@@ -83,6 +85,8 @@ public class Suspect : MonoBehaviour {
 
         myLastName = AssetManager.lastNames[lNameIndex];
         myFirstName = AssetManager.firstNames[fNameIndex];
+
+        myProfession = AssetManager.profession[(UnityEngine.Random.Range(0, AssetManager.profession.Count - 1))];
 
         int[] reservedIndex = new int[personalityTraitCount]; 
         for(int i = 0; i < pTraits.Length; i++)
