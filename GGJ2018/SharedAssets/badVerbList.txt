@@ -1,1 +1,1 @@
-killed,murdered,defamed,scammed,robbed,infected,sold,stalked
+killed,murdered,defamed,scammed,robbed,infected,sold,stalked,insulted

@@ -18,6 +18,8 @@ public class AssetManager : MonoBehaviour {
     public static List<string> goodVerbs = new List<string>();
     public static List<string> badVerbs = new List<string>();
     public static List<string> objects = new List<string>();
+    public static List<string> goodVerbs2 = new List<string>();
+    public static List<string> badVerbs2 = new List<string>();
 
     string firstNamePath = @"SharedAssets/firstNameList.txt";
     string lastNamePath = @"SharedAssets/lastNameList.txt";
@@ -32,6 +34,8 @@ public class AssetManager : MonoBehaviour {
     string goodVerbPath = @"SharedAssets/goodVerbList.txt";
     string badVerbPath = @"SharedAssets/badVerbList.txt";
     string objectPath = @"SharedAssets/objectList.txt";
+    string goodVerbPath2 = @"SharedAssets/goodVerbs2.txt";
+    string badVerbPath2 = @"SharedAssets/badVerbs2.txt";
 
     // Use this for initialization
     void Awake () {
@@ -84,6 +88,20 @@ public class AssetManager : MonoBehaviour {
         foreach (string name in names)
         {
             goodVerbs.Add(name);
+        }
+        reader = new StreamReader(goodVerbPath2);
+        text = reader.ReadToEnd();
+        names = text.Split(',');
+        foreach (string name in names)
+        {
+            goodVerbs2.Add(name);
+        }
+        reader = new StreamReader(badVerbPath2);
+        text = reader.ReadToEnd();
+        names = text.Split(',');
+        foreach (string name in names)
+        {
+            badVerbs2.Add(name);
         }
         reader = new StreamReader(badVerbPath);
         text = reader.ReadToEnd();
