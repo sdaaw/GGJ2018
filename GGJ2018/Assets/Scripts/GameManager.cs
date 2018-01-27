@@ -62,8 +62,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<Color> m_mouthColorList;
 
+    [SerializeField]
+    private GameObject gameoverScreen;
+
     private void Awake()
     {
+        Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         waitingForNext = true;
     }
@@ -84,7 +88,7 @@ public class GameManager : MonoBehaviour
             madeJudgement = true;
             strikes++;
             if (strikes == 3)
-                Debug.Log("Game over");
+                GameOver();
             m_timeRemaining = 0;
         }
 
@@ -145,6 +149,7 @@ public class GameManager : MonoBehaviour
 
         if (bT == ButtonType.Yes && isGood || bT == ButtonType.No && !isGood)
         {
+            StartCoroutine("FlashScreenGreen");
             score += 10 * difficulty + m_timeRemaining;
             difficulty *= 1.3f;
             if(difficulty > 10) //do smth to this value to balance it when you are more clear I guess lul and why in the fuck am I talking in english ahaha not really talking as Im typing A STOORM, you didn't believe me guys, 1:12 baby till the day I fucking die. Im fucking pumped watching this again!!!!!!
@@ -160,12 +165,23 @@ public class GameManager : MonoBehaviour
             //flash screen red
             StartCoroutine("FlashScreenRed");
             if (strikes == 3)
-                Debug.Log("Game over");
-
-            //TODO: Implement Game Over
+            {
+                GameOver();
+            }
         }
 
         madeJudgement = true;
+    }
+
+    public void ReloadLevel()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    private void GameOver()
+    {
+        gameoverScreen.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private IEnumerator FlashScreenRed()
@@ -174,6 +190,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         m_layer.color = new Color(0, 0, 0, 0);
     }
+
+    private IEnumerator FlashScreenGreen()
+    {
+        m_layer.color = new Color(0f, 0.8f, 0.3f, 0.6f);
+        yield return new WaitForSeconds(0.2f);
+        m_layer.color = new Color(0, 0, 0, 0);
+    }
+
 
     public void SpawnSuspect()
     {
