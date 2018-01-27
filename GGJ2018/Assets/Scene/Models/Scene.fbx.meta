@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 715aecbedc0b60b40b5e99b73afbd83d
-timeCreated: 1517022168
+timeCreated: 1517053229
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -12,13 +12,15 @@ ModelImporter:
     100008: Cube.003
     100010: Cube.004
     100012: Cube.005
-    100014: Cylinder
-    100016: Cylinder.001
-    100018: Cylinder.008
-    100020: Plane.001
-    100022: Plane.047
-    100024: Plane.092
-    100026: //RootNode
+    100014: Cube.006
+    100016: Cube.008
+    100018: Cylinder
+    100020: Cylinder.001
+    100022: Cylinder.008
+    100024: Plane.001
+    100026: Plane.047
+    100028: Plane.092
+    100030: //RootNode
     400000: Camera
     400002: Cube
     400004: Cube.001
@@ -26,13 +28,15 @@ ModelImporter:
     400008: Cube.003
     400010: Cube.004
     400012: Cube.005
-    400014: Cylinder
-    400016: Cylinder.001
-    400018: Cylinder.008
-    400020: Plane.001
-    400022: Plane.047
-    400024: Plane.092
-    400026: //RootNode
+    400014: Cube.006
+    400016: Cube.008
+    400018: Cylinder
+    400020: Cylinder.001
+    400022: Cylinder.008
+    400024: Plane.001
+    400026: Plane.047
+    400028: Plane.092
+    400030: //RootNode
     2000000: Camera
     2100000: No Name
     2100002: Rug
@@ -46,36 +50,42 @@ ModelImporter:
     2300006: Cube.003
     2300008: Cube.004
     2300010: Cube.005
-    2300012: Cylinder
-    2300014: Cylinder.001
-    2300016: Cylinder.008
-    2300018: Plane.001
-    2300020: Plane.047
-    2300022: Plane.092
+    2300012: Cube.006
+    2300014: Cube.008
+    2300016: Cylinder
+    2300018: Cylinder.001
+    2300020: Cylinder.008
+    2300022: Plane.001
+    2300024: Plane.047
+    2300026: Plane.092
     3300000: Cube
     3300002: Cube.001
     3300004: Cube.002
     3300006: Cube.003
     3300008: Cube.004
     3300010: Cube.005
-    3300012: Cylinder
-    3300014: Cylinder.001
-    3300016: Cylinder.008
-    3300018: Plane.001
-    3300020: Plane.047
-    3300022: Plane.092
-    4300000: Cylinder
-    4300002: Cylinder.001
-    4300004: Cube.002
-    4300006: Plane.047
-    4300008: Cube.005
-    4300010: Cube.004
-    4300012: Plane.092
-    4300014: Cylinder.008
-    4300016: Cube.003
-    4300018: Plane.001
-    4300020: Cube.001
-    4300022: Cube
+    3300012: Cube.006
+    3300014: Cube.008
+    3300016: Cylinder
+    3300018: Cylinder.001
+    3300020: Cylinder.008
+    3300022: Plane.001
+    3300024: Plane.047
+    3300026: Plane.092
+    4300000: Cube.008
+    4300002: Cube.006
+    4300004: Cylinder
+    4300006: Cylinder.001
+    4300008: Cube.002
+    4300010: Plane.047
+    4300012: Cube.005
+    4300014: Cube.004
+    4300016: Plane.092
+    4300018: Cylinder.008
+    4300020: Cube.003
+    4300022: Plane.001
+    4300024: Cube.001
+    4300026: Cube
   externalObjects: {}
   materials:
     importMaterials: 1
