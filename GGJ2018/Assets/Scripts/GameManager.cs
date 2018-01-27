@@ -62,14 +62,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<Color> m_mouthColorList;
 
-    [SerializeField]
-    private GameObject m_gameOverScreen;
-
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
         waitingForNext = true;
-        Time.timeScale = 1;
     }
 
     private void Update()
@@ -153,10 +149,9 @@ public class GameManager : MonoBehaviour
             difficulty *= 1.3f;
             if(difficulty > 10) //do smth to this value to balance it when you are more clear I guess lul and why in the fuck am I talking in english ahaha not really talking as Im typing A STOORM, you didn't believe me guys, 1:12 baby till the day I fucking die. Im fucking pumped watching this again!!!!!!
             {
-                //monkaS
+                difficulty = 0;
                 caseStoryLevel++; //take the stories to the next level? more confusion and shit
             }
-            StartCoroutine("FlashScreenGreen");
             //TODO: lesser time calculate somehow
         }
         else
@@ -165,11 +160,9 @@ public class GameManager : MonoBehaviour
             //flash screen red
             StartCoroutine("FlashScreenRed");
             if (strikes == 3)
-            {
-                //TODO: Implement Game Over
-                m_gameOverScreen.SetActive(true);
-                Time.timeScale = 0;
-            }
+                Debug.Log("Game over");
+
+            //TODO: Implement Game Over
         }
 
         madeJudgement = true;
@@ -177,21 +170,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator FlashScreenRed()
     {
-        m_layer.color = new Color(0.8f, 0.1f, 0.3f, 0.6f);
+        m_layer.color = new Color(0.8f,0.1f,0.3f,0.6f);
         yield return new WaitForSeconds(0.2f);
         m_layer.color = new Color(0, 0, 0, 0);
-    }
-
-    private IEnumerator FlashScreenGreen()
-    {
-        m_layer.color = new Color(0f, 0.8f, 0.3f, 0.6f);
-        yield return new WaitForSeconds(0.2f);
-        m_layer.color = new Color(0, 0, 0, 0);
-    }
-
-    public void ReloadLevel()
-    {
-        Application.LoadLevel(Application.loadedLevel);
     }
 
     public void SpawnSuspect()

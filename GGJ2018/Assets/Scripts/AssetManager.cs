@@ -10,7 +10,11 @@ public class AssetManager : MonoBehaviour {
     public static List<string> personalityTraits = new List<string>();
     public static List<string> formingAdjectives = new List<string>();
     public static List<string> denominalAdjectives = new List<string>();
-    public static List<string> storyBases = new List<string>();
+    public static List<string> story1Bases = new List<string>();
+    public static List<string> story2Bases = new List<string>();
+    public static List<string> story3Bases = new List<string>();
+    public static List<string> story4Bases = new List<string>();
+    public static List<string> story5Bases = new List<string>();
     public static List<string> goodVerbs = new List<string>();
     public static List<string> badVerbs = new List<string>();
     public static List<string> objects = new List<string>();
@@ -20,7 +24,11 @@ public class AssetManager : MonoBehaviour {
     string personalityPath = @"SharedAssets/personalityTraits.txt";
     string formingAdjectivePath = @"SharedAssets/formingAdjectiveList.txt";
     string denominalAdjectivePath = @"SharedAssets/denominalAdjectiveList.txt";
-    string storyPath = @"SharedAssets/storyBases.txt";
+    string story1Path = @"SharedAssets/level1Story.txt";
+    string story2Path = @"SharedAssets/level2Story.txt";
+    string story3Path = @"SharedAssets/level3Story.txt";
+    string story4Path = @"SharedAssets/level4Story.txt";
+    string story5Path = @"SharedAssets/level5Story.txt";
     string goodVerbPath = @"SharedAssets/goodVerbList.txt";
     string badVerbPath = @"SharedAssets/badVerbList.txt";
     string objectPath = @"SharedAssets/objectList.txt";
@@ -93,12 +101,40 @@ public class AssetManager : MonoBehaviour {
         }
 
 
-        reader = new StreamReader(storyPath);
+        reader = new StreamReader(story1Path);
         text = reader.ReadToEnd();
         names = text.Split(';');
         foreach (string name in names)
         {
-            storyBases.Add(name);
+            story1Bases.Add(name);
+        }
+        reader = new StreamReader(story2Path);
+        text = reader.ReadToEnd();
+        names = text.Split(';');
+        foreach (string name in names)
+        {
+            story2Bases.Add(name);
+        }
+        reader = new StreamReader(story3Path);
+        text = reader.ReadToEnd();
+        names = text.Split(';');
+        foreach (string name in names)
+        {
+            story3Bases.Add(name);
+        }
+        reader = new StreamReader(story4Path);
+        text = reader.ReadToEnd();
+        names = text.Split(';');
+        foreach (string name in names)
+        {
+            story4Bases.Add(name);
+        }
+        reader = new StreamReader(story5Path);
+        text = reader.ReadToEnd();
+        names = text.Split(';');
+        foreach (string name in names)
+        {
+            story5Bases.Add(name);
         }
 
         reader.Close();
