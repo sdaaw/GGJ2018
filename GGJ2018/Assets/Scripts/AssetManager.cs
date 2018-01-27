@@ -158,7 +158,7 @@ public class AssetManager : MonoBehaviour {
         }
         reader = new StreamReader(professionPath);
         text = reader.ReadToEnd();
-        names = text.Split(';');
+        names = text.Split(',');
         foreach (string name in names)
         {
             profession.Add(name);
