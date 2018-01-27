@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public float score;
     public float difficulty;
+    private float difficultyNext = 5;
     public float strikes;
 
     public static int caseStoryLevel = 1;
@@ -175,12 +176,13 @@ public class GameManager : MonoBehaviour
             StartCoroutine("FlashScreenGreen");
             score += 10 * difficulty + m_timeRemaining;
             difficulty *= 1.3f;
-            if(difficulty/5 > 1 && difficulty/5 < 2) //do smth to this value to balance it when you are more clear I guess lul and why in the fuck am I talking in english ahaha not really talking as Im typing A STOORM, you didn't believe me guys, 1:12 baby till the day I fucking die. Im fucking pumped watching this again!!!!!!
+            if(difficulty > difficultyNext) //do smth to this value to balance it when you are more clear I guess lul and why in the fuck am I talking in english ahaha not really talking as Im typing A STOORM, you didn't believe me guys, 1:12 baby till the day I fucking die. Im fucking pumped watching this again!!!!!!
             {
-                //difficulty = 0;
+                difficultyNext += 10;
                 caseStoryLevel++; //take the stories to the next level? more confusion and shit
                 //TODO: this is shit do it better
-                m_timeToComplete *= (difficulty/10);
+                if (m_timeToComplete > 12)
+                    m_timeToComplete -= 2;
             }
         }
         else
