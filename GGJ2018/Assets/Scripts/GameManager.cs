@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public float difficulty;
     public float strikes;
 
+    public static int caseStoryLevel = 1;
+
     private bool madeJudgement = false;
     public bool waitingForNext = false;
 
@@ -126,6 +128,7 @@ public class GameManager : MonoBehaviour
         //StartTrial(m_timeToComplete);
     }
 
+
     private IEnumerator WaitForNext()
     {
         waitingForNext = true;
@@ -142,6 +145,10 @@ public class GameManager : MonoBehaviour
         {
             score += 10 * difficulty + m_timeRemaining;
             difficulty *= 1.3f;
+            if(difficulty > 10) //do smth to this value to balance it when you are more clear I guess lul and why in the fuck am I talking in english ahaha not really talking as Im typing A STOORM, you didn't believe me guys, 1:12 baby till the day I fucking die. Im fucking pumped watching this again!!!!!!
+            {
+                caseStoryLevel++;
+            }
             //TODO: lesser time calculate somehow
         }
         else
