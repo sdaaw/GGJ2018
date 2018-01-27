@@ -9,28 +9,31 @@ public class VoteButton : MonoBehaviour
     private GameManager m_gm;
 
     private Color m_originalColor;
+    private Renderer m_renderer;
 
     private void Awake()
     {
         m_gm = FindObjectOfType<GameManager>();
         m_originalColor = GetComponent<Renderer>().material.color;
+        m_renderer = GetComponent<Renderer>();
     }
 
     private void OnMouseDown()
     {
-        if(m_gm.makingJudgement && !m_gm.madeJudgement)
+        if(!m_gm.waitingForNext)
             m_gm.MakeJudgement(bType);
     }
 
     private void OnMouseEnter()
     {
-        if (m_gm.makingJudgement && !m_gm.madeJudgement)
-            GetComponent<Renderer>().material.color = Color.white;
+        //if (m_gm.makingJudgement && !m_gm.madeJudgement)
+        if (!m_gm.waitingForNext)
+            m_renderer.material.color = Color.white;
     }
 
     private void OnMouseExit()
     {
-        GetComponent<Renderer>().material.color = m_originalColor;
+        m_renderer.material.color = m_originalColor;
     }
 }
 

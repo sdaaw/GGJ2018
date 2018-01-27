@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Suspect currentPleb;
+    public Suspect suspect;
 
     private float m_timeRemaining;
     [SerializeField]
@@ -15,9 +15,8 @@ public class GameManager : MonoBehaviour
     public float difficulty;
     public float strikes;
 
-    public bool makingJudgement = false;
-
-    public bool madeJudgement = false;
+    private bool madeJudgement = false;
+    public bool waitingForNext = false;
 
     [SerializeField]
     private float m_timeBetweenSuspects;
@@ -28,24 +27,66 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text m_scoreText;
 
+    [SerializeField]
+    private Image m_layer;
+
+    [SerializeField]
+    private List<Sprite> m_torsoList;
+    [SerializeField]
+    private List<Sprite> m_hairList;
+    [SerializeField]
+    private List<Sprite> m_eyebrowsList;
+    [SerializeField]
+    private List<Sprite> m_eyesList;
+    [SerializeField]
+    private List<Sprite> m_moustacheList;
+    [SerializeField]
+    private List<Sprite> m_mouthList;
+
+    [SerializeField]
+    private List<Color> m_skinColorList;
+    [SerializeField]
+    private List<Color> m_torsoColorList;
+    [SerializeField]
+    private List<Color> m_hairColorList;
+    [SerializeField]
+    private List<Color> m_eyebrowColorList;
+    [SerializeField]
+    private List<Color> m_eyeColorList;
+    [SerializeField]
+    private List<Color> m_moustacheColorList;
+    [SerializeField]
+    private List<Color> m_mouthColorList;
+
     private void Awake()
     {
-
+        Cursor.lockState = CursorLockMode.Locked;
+        waitingForNext = true;
     }
 
     private void Update()
     {
         //start game
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !makingJudgement)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            waitingForNext = false;
             StartTrial(20);
+        }
 
-        if (m_timeRemaining > 0 && !makingJudgement)
+        if (m_timeRemaining > 0 && !waitingForNext)
             m_timeRemaining -= Time.deltaTime;
-        if (m_timeRemaining <= 0)
+        if (m_timeRemaining <= 0 && !waitingForNext)
+        {
+            StartCoroutine("FlashScreenRed");
+            madeJudgement = true;
+            strikes++;
+            if (strikes == 3)
+                Debug.Log("Game over");
             m_timeRemaining = 0;
+        }
 
-        if (m_timeRemaining > 0 && !makingJudgement && Input.GetKeyDown(KeyCode.Space))
-            Confirm();
+        /*if (m_timeRemaining > 0 && !makingJudgement && Input.GetKeyDown(KeyCode.Space))
+            Confirm();*/
 
         UpdateIngameTexts();
 
@@ -63,48 +104,86 @@ public class GameManager : MonoBehaviour
 
     public void StartTrial(float time)
     {
+        SpawnSuspect();
         m_timeToComplete = time;
         m_timeRemaining = m_timeToComplete;
-        makingJudgement = false;
-    }
-
-    public void Confirm()
-    {
-        makingJudgement = true;
-        //player selects between 2 buttons
+        madeJudgement = false;
         StartCoroutine("WaitForJudgement");
     }
+
+    /*public void Confirm()
+    {
+        //makingJudgement = true;
+        //player selects between 2 buttons
+        StartCoroutine("WaitForJudgement");
+    }*/
 
     private IEnumerator WaitForJudgement()
     {
         //waits until player makes judegement
         yield return new WaitUntil(()=> madeJudgement == true);
         StartCoroutine("WaitForNext"); 
+        //StartTrial(m_timeToComplete);
     }
 
     private IEnumerator WaitForNext()
     {
+        waitingForNext = true;
         yield return new WaitForSeconds(m_timeBetweenSuspects);
+        waitingForNext = false;
         StartTrial(m_timeToComplete);
-        madeJudgement = false;
-        makingJudgement = false;
     }
 
     public void MakeJudgement(ButtonType bT)
     {
-        if (bT == ButtonType.Yes)
-            Debug.Log("voted for trump");
+        bool isGood = (suspect.badVerbCount < suspect.goodVerbCount) ? true : false;
+
+        if (bT == ButtonType.Yes && isGood || bT == ButtonType.No && !isGood)
+        {
+            score += 10 * difficulty + m_timeRemaining;
+            difficulty *= 1.3f;
+            //TODO: lesser time calculate somehow
+        }
         else
-            Debug.Log("voted for putin");
+        {
+            strikes++;
+            //flash screen red
+            StartCoroutine("FlashScreenRed");
+            if (strikes == 3)
+                Debug.Log("Game over");
 
-        //set score/streaks accordingly and add difficulty, reduce time
-        score += 10 * difficulty;
-        difficulty *= 1.3f;
-
-        //strikes++;
-        if (strikes == 3)
-            Debug.Log("Game over");
+            //TODO: Implement Game Over
+        }
 
         madeJudgement = true;
+    }
+
+    private IEnumerator FlashScreenRed()
+    {
+        m_layer.color = new Color(0.8f,0.1f,0.3f,0.6f);
+        yield return new WaitForSeconds(0.2f);
+        m_layer.color = new Color(0, 0, 0, 0);
+    }
+
+    public void SpawnSuspect()
+    {
+        //change colors of the sprites?
+        //swap the sprites here for new suspect and change story/image in note
+        suspect.SetSprites(m_torsoList[Random.Range(0, m_torsoList.Count - 1)],
+                           m_hairList[Random.Range(0, m_hairList.Count - 1)],
+                           m_eyebrowsList[Random.Range(0, m_eyebrowsList.Count - 1)],
+                           m_eyesList[Random.Range(0, m_eyesList.Count - 1)],
+                           m_moustacheList[Random.Range(0, m_moustacheList.Count - 1)],
+                           m_mouthList[Random.Range(0, m_mouthList.Count - 1)]);
+
+        suspect.SetSpriteColors(m_skinColorList[Random.Range(0,m_skinColorList.Count - 1)],
+                                m_torsoColorList[Random.Range(0, m_torsoColorList.Count - 1)],
+                                m_hairColorList[Random.Range(0, m_hairColorList.Count - 1)],
+                                m_eyebrowColorList[Random.Range(0, m_eyebrowColorList.Count - 1)],
+                                m_eyeColorList[Random.Range(0, m_eyeColorList.Count - 1)],
+                                m_moustacheColorList[Random.Range(0, m_moustacheColorList.Count - 1)],
+                                m_mouthColorList[Random.Range(0, m_mouthColorList.Count - 1)]);
+
+        suspect.AssignPersonality();
     }
 }

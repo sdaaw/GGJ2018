@@ -1,1 +1,1 @@
-wooden,biological,mathematical,hard,stunning,harsh,soft
+wooden,biological,mathematical,hard,stunning,harsh,soft,rad,icy,cool,hot,boring,sad,nice,rowdy,lame

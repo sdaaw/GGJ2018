@@ -26,20 +26,13 @@ public class AssetManager : MonoBehaviour {
     string objectPath = @"SharedAssets/objectList.txt";
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         LoadAssets();
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 
     void LoadAssets()
     {
-        int lineCount = 0;
         StreamReader reader = new StreamReader(firstNamePath);
         string text = reader.ReadToEnd();
         string[] names = text.Split(',');
@@ -109,6 +102,5 @@ public class AssetManager : MonoBehaviour {
         }
 
         reader.Close();
-        //Debug.Log("First names loaded: " + firstNames.Count + " | Last names loaded: " + lastNames.Count);
     }
 }
