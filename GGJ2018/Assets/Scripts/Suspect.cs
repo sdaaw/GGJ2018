@@ -18,8 +18,11 @@ public class Suspect : MonoBehaviour {
 
     public string caseStory;
 
+
     public int badVerbCount = 0;
     public int goodVerbCount = 0;
+
+    private int storyLevel;
 
     [SerializeField]
     private SpriteRenderer m_torso;
@@ -64,6 +67,7 @@ public class Suspect : MonoBehaviour {
     // Use this for initialization
     void Start () {
         AssignPersonality();
+        StartCoroutine("FlipEyes");
 	}
 
 
@@ -94,11 +98,30 @@ public class Suspect : MonoBehaviour {
 
     }
 
+    private IEnumerator FlipEyes()
+    {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(2f, 5f));
+        m_eyes.flipX = true;
+        yield return new WaitForSeconds(UnityEngine.Random.Range(2f, 5f));
+        m_eyes.flipX = false;
+        StartCoroutine("FlipEyes");
+    }
+
     void BuildStory()
     {
         string baseStory = AssetManager.storyBases[UnityEngine.Random.Range(0, AssetManager.storyBases.Count - 1)];
+
+
+        if (baseStory.Contains("!#"))
+        {
+            int startPoint = baseStory.IndexOf("!#");
+            string s_stage = baseStory.Substring(startPoint + 2, 1);
+            storyLevel = Convert.ToInt32(s_stage);
+
+        }
+
         string fixedStory = null; 
-        while(fixedStory == null)
+        while(fixedStory == null && storyLevel == GameManager.caseStoryLevel)
         {
             fixedStory = baseStory
             .Replace("!dAdj!", AssetManager.denominalAdjectives[UnityEngine.Random.Range(0, AssetManager.denominalAdjectives.Count - 1)])
@@ -107,7 +130,12 @@ public class Suspect : MonoBehaviour {
             .Replace("!lastname!", myLastName)
             .Replace("!obj!", AssetManager.objects[UnityEngine.Random.Range(0, AssetManager.objects.Count - 1)])
             .Replace("!goodverb!", AssetManager.goodVerbs[UnityEngine.Random.Range(0, AssetManager.goodVerbs.Count - 1)])
-            .Replace("!badverb!", AssetManager.badVerbs[UnityEngine.Random.Range(0, AssetManager.badVerbs.Count - 1)]);
+            .Replace("!badverb!", AssetManager.badVerbs[UnityEngine.Random.Range(0, AssetManager.badVerbs.Count - 1)])
+            .Replace("!#1", "")
+            .Replace("!#2", "")
+            .Replace("!#3", "")
+            .Replace("!#4", "")
+            .Replace("!#5", "");
         }
 
         string badVerbs = "!badverb!";
@@ -128,7 +156,6 @@ public class Suspect : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-
 
 		
 	}
