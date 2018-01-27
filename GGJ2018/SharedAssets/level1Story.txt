@@ -1,0 +1,7 @@
+!#1 This is a level 1 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
+!#1 This is a level 1 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
+!#1 This is a level 1 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
+!#1 This is a level 1 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
+!#1 This is a level 1 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
+!#1 This is a level 1 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
+!#1 This is a level 1 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
