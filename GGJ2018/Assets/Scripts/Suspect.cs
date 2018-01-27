@@ -27,6 +27,11 @@ public class Suspect : MonoBehaviour {
     private int storyLevel;
 
     [SerializeField]
+    private Text m_nameText;
+    [SerializeField]
+    private Text m_careerText;
+
+    [SerializeField]
     private SpriteRenderer m_head;
     [SerializeField]
     private SpriteRenderer m_torso;
@@ -102,6 +107,9 @@ public class Suspect : MonoBehaviour {
             pTraits[i] = AssetManager.personalityTraits[pTraitIndex];
             reservedIndex[i] = pTraitIndex;
         }
+
+        m_nameText.text = myFirstName + " " + myLastName;
+        m_careerText.text = myProfession;
 
         BuildStory();
 
