@@ -39,6 +39,8 @@ public class Suspect : MonoBehaviour {
     [SerializeField]
     private SpriteRenderer m_mouth;
 
+    public Animator particle;
+
     public void SetSprites(Sprite head, Sprite torso, Sprite hair, Sprite eyebrows, Sprite eyes, Sprite moustache, Sprite mouth)
     {
         m_head.sprite = head;

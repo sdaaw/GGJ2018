@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour
 
     public void StartTrial(float time)
     {
+        suspect.particle.SetTrigger("play");
         suspect.GetComponent<Animator>().SetTrigger("spawn");
         waitingForNext = false;
         SpawnSuspect();
@@ -159,12 +160,14 @@ public class GameManager : MonoBehaviour
             m_rightDoorAnim.SetTrigger("openDoor");
             m_rightDoorAnim.GetComponent<AudioSource>().Play();
             suspect.GetComponent<Animator>().SetTrigger("moveRight");
+            suspect.particle.SetTrigger("play");
         }
         else
         {
             m_leftDoorAnim.SetTrigger("openDoor");
             m_leftDoorAnim.GetComponent<AudioSource>().Play();
             suspect.GetComponent<Animator>().SetTrigger("moveLeft");
+            suspect.particle.SetTrigger("play");
         }  
 
         if (bT == ButtonType.Yes && isGood || bT == ButtonType.No && !isGood)
