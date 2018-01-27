@@ -13,4 +13,12 @@ public class MenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ShowCredits(GameObject creditsObj)
+    {
+        if (!creditsObj.activeSelf)
+            creditsObj.SetActive(true);
+        else
+            creditsObj.SetActive(false);
+    }
 }
