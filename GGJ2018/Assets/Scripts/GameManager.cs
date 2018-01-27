@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
         //start game
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            waitingForNext = false;
             StartTrial(20);
         }
 
@@ -104,6 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void StartTrial(float time)
     {
+        waitingForNext = false;
         SpawnSuspect();
         m_timeToComplete = time;
         m_timeRemaining = m_timeToComplete;

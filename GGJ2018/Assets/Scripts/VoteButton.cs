@@ -18,6 +18,18 @@ public class VoteButton : MonoBehaviour
         m_renderer = GetComponent<Renderer>();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<VRTouchTrigger>())
+            OnMouseDown();
+    }
+
+    /*private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.GetComponent<VRTouchTrigger>())
+            OnMouseDown();
+    }*/
+
     private void OnMouseDown()
     {
         if(!m_gm.waitingForNext)
