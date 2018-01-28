@@ -178,27 +178,26 @@ public class Suspect : MonoBehaviour {
         goodVerbCount = 0;
         badVerbCount = 0;
         string baseStory = null;
-        if(GameManager.caseStoryLevel >= 1) baseStory = AssetManager.story1Bases[UnityEngine.Random.Range(0, AssetManager.story1Bases.Count - 1)];
-        if(GameManager.caseStoryLevel >= 2) baseStory = AssetManager.story2Bases[UnityEngine.Random.Range(0, AssetManager.story2Bases.Count - 1)];
-        if(GameManager.caseStoryLevel >= 3) baseStory = AssetManager.story3Bases[UnityEngine.Random.Range(0, AssetManager.story3Bases.Count - 1)];
-        if(GameManager.caseStoryLevel >= 4) baseStory = AssetManager.story4Bases[UnityEngine.Random.Range(0, AssetManager.story4Bases.Count - 1)];
-        if(GameManager.caseStoryLevel >= 5) baseStory = AssetManager.story5Bases[UnityEngine.Random.Range(0, AssetManager.story5Bases.Count - 1)];
+        if(GameManager.caseStoryLevel >= 1) baseStory = AssetManager.story1Bases[UnityEngine.Random.Range(0, AssetManager.story1Bases.Count)];
+        if(GameManager.caseStoryLevel >= 2) baseStory = AssetManager.story2Bases[UnityEngine.Random.Range(0, AssetManager.story2Bases.Count)];
+        if(GameManager.caseStoryLevel >= 3) baseStory = AssetManager.story3Bases[UnityEngine.Random.Range(0, AssetManager.story3Bases.Count)];
+        if(GameManager.caseStoryLevel >= 4) baseStory = AssetManager.story4Bases[UnityEngine.Random.Range(0, AssetManager.story4Bases.Count)];
+        if(GameManager.caseStoryLevel >= 5) baseStory = AssetManager.story5Bases[UnityEngine.Random.Range(0, AssetManager.story5Bases.Count)];
 
 
 
         string fixedStory = null;
 
         //replaceboys
-        fixedStory = baseStory
-        .Replace("!dAdj!", AssetManager.denominalAdjectives[UnityEngine.Random.Range(0, AssetManager.denominalAdjectives.Count - 1)])
-        .Replace("!fAdj!", AssetManager.formingAdjectives[UnityEngine.Random.Range(0, AssetManager.formingAdjectives.Count - 1)])
-        .Replace("!firstname!", myFirstName)
-        .Replace("!lastname!", myLastName)
-        .Replace("!obj!", AssetManager.objects[UnityEngine.Random.Range(0, AssetManager.objects.Count - 1)])
-        .Replace("!goodverb!", AssetManager.goodVerbs[UnityEngine.Random.Range(0, AssetManager.goodVerbs.Count - 1)])
-        .Replace("!badverb!", AssetManager.badVerbs[UnityEngine.Random.Range(0, AssetManager.badVerbs.Count - 1)])
-        .Replace("!goodverb2!", AssetManager.goodVerbs2[UnityEngine.Random.Range(0, AssetManager.goodVerbs2.Count - 1)])
-        .Replace("!badverb2!", AssetManager.badVerbs2[UnityEngine.Random.Range(0, AssetManager.badVerbs2.Count - 1)]);
+        fixedStory = baseStory.Replace("!dAdj!", AssetManager.denominalAdjectives[UnityEngine.Random.Range(0, AssetManager.denominalAdjectives.Count - 1)]);
+        fixedStory = fixedStory.Replace("!fAdj!", AssetManager.formingAdjectives[UnityEngine.Random.Range(0, AssetManager.formingAdjectives.Count - 1)]);
+        fixedStory = fixedStory.Replace("!firstname!", myFirstName);
+        fixedStory = fixedStory.Replace("!lastname!", myLastName);
+        fixedStory = fixedStory.Replace("!obj!", AssetManager.objects[UnityEngine.Random.Range(0, AssetManager.objects.Count - 1)]);
+        fixedStory = fixedStory.Replace("!goodverb!", AssetManager.goodVerbs[UnityEngine.Random.Range(0, AssetManager.goodVerbs.Count - 1)]);
+        fixedStory = fixedStory.Replace("!badverb!", AssetManager.badVerbs[UnityEngine.Random.Range(0, AssetManager.badVerbs.Count - 1)]);
+        fixedStory = fixedStory.Replace("!goodverb2!", AssetManager.goodVerbs2[UnityEngine.Random.Range(0, AssetManager.goodVerbs2.Count - 1)]);
+        fixedStory = fixedStory.Replace("!badverb2!", AssetManager.badVerbs2[UnityEngine.Random.Range(0, AssetManager.badVerbs2.Count - 1)]);
 
         string badVerbs = "!badverb!";
         string input = baseStory;

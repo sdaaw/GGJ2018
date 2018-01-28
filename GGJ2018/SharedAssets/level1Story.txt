@@ -1,3 +1,8 @@
+!badverb2! !badverb2! !badverb2! !badverb2! !badverb2! !badverb2!;
+!badverb2! !badverb2! !badverb2! !badverb2! !badverb2! !badverb2!;
+!badverb2! !badverb2! !badverb2! !badverb2! !badverb2! !badverb2!;
+!badverb2! !badverb2! !badverb2! !badverb2! !badverb2! !badverb2!;
+!badverb2! !badverb2! !badverb2! !badverb2! !badverb2! !badverb2!;
 The suspect has been charged in a case where they <color=#0066ff>!goodverb!</color> a 47-year old female using !obj! as an important prop in their scheme.;
 The suspect has been charged in a case where they <color=#ff0000>!badverb!</color> a 25-year old male using !obj! as an important prop in their scheme.;
 The suspect has a clear case where they appeared to be very !fAdj! while they <color=#0066ff>!goodverb!</color> a 65-year old male. They appeared to use !obj! as a tool in their plan.;
