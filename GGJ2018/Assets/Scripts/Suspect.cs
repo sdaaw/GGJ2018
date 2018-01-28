@@ -178,11 +178,11 @@ public class Suspect : MonoBehaviour {
         goodVerbCount = 0;
         badVerbCount = 0;
         string baseStory = null;
-        if(GameManager.caseStoryLevel >= 1) baseStory = AssetManager.story1Bases[UnityEngine.Random.Range(0, AssetManager.story1Bases.Count)];
-        if(GameManager.caseStoryLevel >= 2) baseStory = AssetManager.story2Bases[UnityEngine.Random.Range(0, AssetManager.story2Bases.Count)];
-        if(GameManager.caseStoryLevel >= 3) baseStory = AssetManager.story3Bases[UnityEngine.Random.Range(0, AssetManager.story3Bases.Count)];
-        if(GameManager.caseStoryLevel >= 4) baseStory = AssetManager.story4Bases[UnityEngine.Random.Range(0, AssetManager.story4Bases.Count)];
-        if(GameManager.caseStoryLevel >= 5) baseStory = AssetManager.story5Bases[UnityEngine.Random.Range(0, AssetManager.story5Bases.Count)];
+        if(GameManager.caseStoryLevel >= 1) baseStory = AssetManager.story1Bases[UnityEngine.Random.Range(0, AssetManager.story1Bases.Count - 1)];
+        if(GameManager.caseStoryLevel >= 2) baseStory = AssetManager.story2Bases[UnityEngine.Random.Range(0, AssetManager.story2Bases.Count - 1)];
+        if(GameManager.caseStoryLevel >= 3) baseStory = AssetManager.story3Bases[UnityEngine.Random.Range(0, AssetManager.story3Bases.Count - 1)];
+        if(GameManager.caseStoryLevel >= 4) baseStory = AssetManager.story4Bases[UnityEngine.Random.Range(0, AssetManager.story4Bases.Count - 1)];
+        if(GameManager.caseStoryLevel >= 5) baseStory = AssetManager.story5Bases[UnityEngine.Random.Range(0, AssetManager.story5Bases.Count - 1)];
 
 
 
