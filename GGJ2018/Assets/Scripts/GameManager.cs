@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1;
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         waitingForNext = true;
         gameStarted = false;
@@ -90,12 +91,33 @@ public class GameManager : MonoBehaviour
             UnityEngine.XR.XRSettings.enabled = false;
         else if (Application.loadedLevelName == "vrscene")
             UnityEngine.XR.XRSettings.enabled = true;
+
+    }
+
+    private void Start()
+    {
+        //suspect.TutorialText();
+    }
+
+    public void ToggleScreenLock()
+    {
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        } 
+        else if(Cursor.lockState == CursorLockMode.None)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+            
     }
 
     private void Update()
     {
         //DEBUGGING ONLY: start game remove when building game
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !gameStarted)
+        if (Input.GetKeyDown(KeyCode.Space) && !gameStarted)
         {
             StartTrial(20);
             gameStarted = true;
@@ -118,6 +140,9 @@ public class GameManager : MonoBehaviour
             Confirm();*/
 
         UpdateIngameTexts();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ToggleScreenLock();
 
     }
 

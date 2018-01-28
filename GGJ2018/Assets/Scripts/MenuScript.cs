@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MenuScript : MonoBehaviour
 {
+    private void Awake()
+    {
+        UnityEngine.XR.XRSettings.enabled = false;
+    }
+
     public void StartGame(string lvlName)
     {
         Application.LoadLevel(lvlName);

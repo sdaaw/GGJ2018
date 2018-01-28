@@ -61,6 +61,8 @@ public class Suspect : MonoBehaviour {
 
     public Animator particle;
 
+    private bool tutorialDone = false;
+
     public void SetSprites(Sprite head, Sprite torso, Sprite hair, Sprite eyebrows, Sprite eyes, Sprite moustache, Sprite mouth)
     {
         m_head.sprite = head;
@@ -112,6 +114,17 @@ public class Suspect : MonoBehaviour {
         StartCoroutine("FlipEyes");
 	}
 
+    public void TutorialText()
+    {
+        m_nameText.text = "";
+        m_careerText.text = "";
+
+        if (Application.loadedLevelName == "testings")
+            story.text = "Press [Space] to start judging suspects";
+        else if(Application.loadedLevelName == "vrscene")
+            story.text = "Press [A] to start judging suspects";
+    }
+
 
     public void AssignPersonality()
     {
@@ -142,6 +155,12 @@ public class Suspect : MonoBehaviour {
         m_careerText.text = myProfession;
 
         BuildStory();
+
+        if(!tutorialDone)
+        {
+            tutorialDone = true;
+            TutorialText();
+        }
 
     }
 
