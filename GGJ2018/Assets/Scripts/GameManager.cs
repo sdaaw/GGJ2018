@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     private bool madeJudgement = false;
     public bool waitingForNext = false;
 
+    public bool gameStarted = false;
+
     [SerializeField]
     private float m_timeBetweenSuspects;
 
@@ -75,19 +77,23 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject gameoverScreen;
 
+    public bool gameOver;
+
     private void Awake()
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         waitingForNext = true;
+        gameStarted = false;
     }
 
     private void Update()
     {
         //DEBUGGING ONLY: start game remove when building game
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !gameStarted)
         {
             StartTrial(20);
+            gameStarted = true;
         }
 
         if (m_timeRemaining > 0 && !waitingForNext)
@@ -215,6 +221,7 @@ public class GameManager : MonoBehaviour
     {
         gameoverScreen.SetActive(true);
         Time.timeScale = 0;
+        gameOver = true;
     }
 
     private IEnumerator FlashScreenRed()

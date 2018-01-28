@@ -11,6 +11,9 @@ public class VoteButton : MonoBehaviour
     private Color m_originalColor;
     private Renderer m_renderer;
 
+    [SerializeField]
+    private AudioSource m_as;
+
     private void Awake()
     {
         m_gm = FindObjectOfType<GameManager>();
@@ -33,7 +36,10 @@ public class VoteButton : MonoBehaviour
     private void OnMouseDown()
     {
         if(!m_gm.waitingForNext)
+        {
             m_gm.MakeJudgement(bType);
+            m_as.Play();
+        }     
     }
 
     private void OnMouseEnter()
