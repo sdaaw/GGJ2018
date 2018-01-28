@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: eac66fe0e01609b45ae86ed705da9417
+timeCreated: 1517138097
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Geomancy
+  fontNames:
+  - Geomancy
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9de1f9a2285d9ea4593a9770679725e4, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
