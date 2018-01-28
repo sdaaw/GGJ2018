@@ -85,6 +85,11 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         waitingForNext = true;
         gameStarted = false;
+
+        if (Application.loadedLevelName == "testings")
+            UnityEngine.XR.XRSettings.enabled = false;
+        else if (Application.loadedLevelName == "vrscene")
+            UnityEngine.XR.XRSettings.enabled = true;
     }
 
     private void Update()
