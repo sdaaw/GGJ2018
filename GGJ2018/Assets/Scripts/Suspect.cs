@@ -46,6 +46,19 @@ public class Suspect : MonoBehaviour {
     [SerializeField]
     private SpriteRenderer m_mouth;
 
+    [SerializeField]
+    private Image m_headSImg;
+    [SerializeField]
+    private Image m_hairSImg;
+    [SerializeField]
+    private Image m_eyebrowsSImg;
+    [SerializeField]
+    private Image m_eyesSImg;
+    [SerializeField]
+    private Image m_moustacheSImg;
+    [SerializeField]
+    private Image m_mouthSImg;
+
     public Animator particle;
 
     public void SetSprites(Sprite head, Sprite torso, Sprite hair, Sprite eyebrows, Sprite eyes, Sprite moustache, Sprite mouth)
@@ -56,7 +69,14 @@ public class Suspect : MonoBehaviour {
         m_eyebrows.sprite = eyebrows;
         m_eyes.sprite = eyes;
         m_moustache.sprite = moustache;
-        m_mouth.sprite = mouth;     
+        m_mouth.sprite = mouth;
+
+        m_headSImg.sprite = head;
+        m_hairSImg.sprite = hair;
+        m_eyebrowsSImg.sprite = eyebrows;
+        m_eyesSImg.sprite = eyes;
+        m_moustacheSImg.sprite = moustache;
+        m_mouthSImg.sprite = mouth;
     }
 
     public void SetSpriteColors(Color skinC, Color torsoC, Color hairC, Color eyebrowsC, Color eyesC, Color moustacheC, Color mouthC)
@@ -68,6 +88,16 @@ public class Suspect : MonoBehaviour {
         //m_eyes.color = eyesC;
         m_moustache.color = moustacheC;
         m_mouth.color = mouthC;
+
+        m_headSImg.color = skinC;
+        m_hairSImg.color = hairC;
+        m_eyebrowsSImg.color = eyebrowsC;
+        //m_eyesSImg.color = eyes;
+        if (m_moustache.sprite != null)
+            m_moustacheSImg.color = moustacheC;
+        else
+            m_moustacheSImg.color = Color.clear;
+        m_mouthSImg.color = mouthC;
     }
 
     public Color getRndColor()
