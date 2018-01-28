@@ -188,8 +188,16 @@ public class Suspect : MonoBehaviour {
 
         string fixedStory = null;
 
+        fixedStory = baseStory;
+
+        while(fixedStory.Contains("!badverb2!"))
+        {
+            fixedStory = ReplaceFirstOccurrence(fixedStory, "!badverb2!", AssetManager.denominalAdjectives[UnityEngine.Random.Range(0, AssetManager.badVerbs2.Count)]);
+        }
+        
+
         //replaceboys
-        fixedStory = baseStory
+        /*fixedStory = baseStory
         .Replace("!dAdj!", AssetManager.denominalAdjectives[UnityEngine.Random.Range(0, AssetManager.denominalAdjectives.Count - 1)])
         .Replace("!fAdj!", AssetManager.formingAdjectives[UnityEngine.Random.Range(0, AssetManager.formingAdjectives.Count - 1)])
         .Replace("!firstname!", myFirstName)
@@ -198,7 +206,7 @@ public class Suspect : MonoBehaviour {
         .Replace("!goodverb!", AssetManager.goodVerbs[UnityEngine.Random.Range(0, AssetManager.goodVerbs.Count - 1)])
         .Replace("!badverb!", AssetManager.badVerbs[UnityEngine.Random.Range(0, AssetManager.badVerbs.Count - 1)])
         .Replace("!goodverb2!", AssetManager.goodVerbs2[UnityEngine.Random.Range(0, AssetManager.goodVerbs2.Count - 1)])
-        .Replace("!badverb2!", AssetManager.badVerbs2[UnityEngine.Random.Range(0, AssetManager.badVerbs2.Count - 1)]);
+        .Replace("!badverb2!", AssetManager.badVerbs2[UnityEngine.Random.Range(0, AssetManager.badVerbs2.Count - 1)]);*/
 
         string badVerbs = "!badverb!";
         string input = baseStory;
@@ -233,4 +241,11 @@ public class Suspect : MonoBehaviour {
 
 		
 	}
+
+    public static string ReplaceFirstOccurrence(string Source, string Find, string Replace)
+    {
+        int Place = Source.IndexOf(Find);
+        string result = Source.Remove(Place, Find.Length).Insert(Place, Replace);
+        return result;
+    }
 }
