@@ -1,4 +1,4 @@
-The suspect has been charged in a case where they <color=#0066ff>!goodverb!</color> a 47-year old female using !obj! as a bait.;
-The suspect has been charged in a case where they <color=#ff0000>!badverb!</color> a 25-year old male using !obj! as a bait.;
-The suspect has a clear case where they appeared to be very !fAdj! while they <color=#0066ff>!goodverb!</color> a 65-year old male. They appeared to use !obj! as a tool to aid theirselves.;
-The suspect has a clear case where they appeared to be very !fAdj! while they <color=#ff0000>!badverb!</color> a 32-year old female. They appeared to use !obj! as a tool to aid theirselves.;
+The suspect has been charged in a case where they <color=#0066ff>!goodverb!</color> a 47-year old female using !obj! as an important prop in their scheme.;
+The suspect has been charged in a case where they <color=#ff0000>!badverb!</color> a 25-year old male using !obj! as an important prop in their scheme.;
+The suspect has a clear case where they appeared to be very !fAdj! while they <color=#0066ff>!goodverb!</color> a 65-year old male. They appeared to use !obj! as a tool in their plan.;
+The suspect has a clear case where they appeared to be very !fAdj! while they <color=#ff0000>!badverb!</color> a 32-year old female. They appeared to use !obj! as a tool in their plan.;
