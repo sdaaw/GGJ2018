@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MenuScript : MonoBehaviour
 {
-    public void StartGame()
+    public void StartGame(string lvlName)
     {
-        Application.LoadLevel(1);
+        Application.LoadLevel(lvlName);
     }
 
     public void QuitGame()
