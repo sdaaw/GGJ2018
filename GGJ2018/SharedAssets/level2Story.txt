@@ -2,7 +2,7 @@ The suspect has been in a very <color=#ff0000>!dAdj!</color> state during the in
 The suspect has been in a very <color=#ff0000>!dAdj!</color> state during the investigation. They !badverb! a street dog, which led to us finding out that he had a record of where he !goodverb! another street dog with !obj!.;
 The suspect has been in a very <color=#ff0000>!dAdj!</color> state during the investigation. They !goodverb! a street dog, which led to us finding out that he had a record of where he !goodverb! another street dog with !obj!.;
 The suspect has been in a very <color=#ff0000>!dAdj!</color> state during the investigation. They !badverb! a street dog, which led to us finding out that he had a record of where he !badverb! another street dog with !obj!.;
-The suspect has been charged for !badverb2! in the past. This time he is being accused for !badverb2! a cat. He also !goodverb! our dear detective.
-The suspect has been charged for !goodverb2! in the past. This time he is being accused for !goodverb2! a cat. He also !badverb! our dear detective.
-The suspect has been charged for !badverb2! in the past. This time he is being accused for !badverb2! a cat. He also !badverb! our dear detective.
-The suspect has been charged for !goodverb2! in the past. This time he is being accused for !goodverb2! a cat. He also !goodverb! our dear detective.
+The suspect has been charged for !badverb2! in the past. This time he is being accused for !badverb2! a cat. He also !goodverb! our dear detective.;
+The suspect has been charged for !goodverb2! in the past. This time he is being accused for !goodverb2! a cat. He also !badverb! our dear detective.;
+The suspect has been charged for !badverb2! in the past. This time he is being accused for !badverb2! a cat. He also !badverb! our dear detective.;
+The suspect has been charged for !goodverb2! in the past. This time he is being accused for !goodverb2! a cat. He also !goodverb! our dear detective.;
