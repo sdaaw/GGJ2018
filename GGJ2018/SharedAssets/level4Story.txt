@@ -1,7 +1,4 @@
-!#4 This is a level 4 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#4 This is a level 4 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#4 This is a level 4 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#4 This is a level 4 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#4 This is a level 4 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#4 This is a level 4 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#4 This is a level 4 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
+The suspect got very !dAdj! after we suggested that they <color=#0066ff>!goodverb!</color> our detectives during the investigation. On the base they !badverb! a 24-year old male, and got caught in the action of !badverb2! a 43-year old male with !obj!.;
+The suspect got very !dAdj! after we suggested that they <color=#ff0000>!badverb!</color> our detectives during the investigation. On the base they <color=#0066ff>!badverb!</color> a 24-year old male, and got caught in the action of !badverb2! a 43-year old male with !obj!.;
+The suspect got very !dAdj! after we suggested that they !goodverb! our detectives during the investigation. On the base they !goodverb! a 24-year old male, and got caught in the action of !goodverb2! a 43-year old male with !obj!.;
+The suspect got very !dAdj! after we suggested that they !goodverb! our detectives during the investigation. On the base they <color=#0066ff>!badverb!</color> a 24-year old male, and got caught in the action of !goodverb2! a 43-year old male with !obj!.;
