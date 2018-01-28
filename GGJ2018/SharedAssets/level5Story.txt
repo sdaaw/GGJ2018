@@ -1,7 +1,4 @@
-!#5 This is a level 5 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#5 This is a level 5 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#5 This is a level 5 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#5 This is a level 5 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#5 This is a level 5 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#5 This is a level 5 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
-!#5 This is a level 5 story: Hello! My name is !firstname! !lastname!. I'm very !fAdj! and I <color=#0066ff>!goodverb!</color> people with !obj! for a hobby, and it is !dAdj!. c:;
+The suspect was very !fAdj!. <color=#ff0000>!badverb2!</color> our detectives when they found out they <color=#0066ff>%badverb%</color> their friend, this was most likely caused due to the suspect being !fAdj!.;
+The suspect was very !fAdj!. <color=#0066ff>!badverb2!</color> our detectives when they found out they <color=#ff0000>%goodverb%</color> their friend, this was most likely caused due to the suspect being !fAdj!.;
+The suspect was very !fAdj!. <color=#0066ff>!goodverb2!</color> our detectives when they found out they <color=#0066ff>%badverb%</color> their friend, this was most likely caused due to the suspect being !fAdj!.;
+The suspect was very !fAdj!. <color=#0066ff>!goodverb2!</color> our detectives when they found out they <color=#0066ff>%goodverb%</color> their friend, this was most likely caused due to the suspect being !fAdj!.;

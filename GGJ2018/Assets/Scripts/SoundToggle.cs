@@ -21,7 +21,6 @@ public class SoundToggle : MonoBehaviour {
         {
             PlayAudio();
         }
-		
 	}
 
     void PlayAudio()

@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
 
     public void MakeJudgement(ButtonType bT)
     {
-        bool isGood = (suspect.badVerbCount < suspect.goodVerbCount) ? true : false;
+        bool isGood = (suspect.badVerbCount <= suspect.goodVerbCount) ? true : false;
 
         if (bT == ButtonType.Yes)
         {
